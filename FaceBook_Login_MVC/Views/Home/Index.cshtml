@@ -1,0 +1,106 @@
+﻿@model FaceBook_Login_MVC.Models.FaceBookUser
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Facebook Login API</title>
+    <link href="Content/bootsrap.css" rel="stylesheet" />
+    <link href="Content/bootsrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        
+
+
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body style="padding-top:10px;">
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        
+        
+        //SEU IS 15 ICT 034
+        //Faculty of Technology
+        //South Eastern University of Sri Lanka
+        
+        
+        
+        <div class="col-md-10 col-md-offset-1">
+            <div class="well">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="success">
+                            <td colspan="2">
+                                User login... 
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Email</td>
+                            <td> <input type="text" id="emailID" name="name" placeholder="Email" /></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td> <input type="password" pass="name" id="passID" placeholder="Password" /></td>
+                        </tr>
+                        <tr class="success">
+                            <td colspan="2"> <input type="button" class="btn btn-success" pass="log" id="login" value="Login" /></td>
+                        </tr>
+                        <tr class="success">
+                            <td colspan="2"> <input type="submit" class="btn btn-success" value="Login with FaceBook" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+        
+        if (!string.IsNullOrEmpty(Model.Id))
+        {
+            <hr />
+
+    <div class="col-md-10 col-md-offset-1">
+        <div class="well">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="success">
+                        <td colspan="2">
+                            <h3>Successfuly login with Facebook API..</h3> <h1>Hello @Model.Name</h1>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ID: @Model.Id</td>
+                    </tr>
+                    <tr>
+                        <td>Name: @Model.Name</td>
+                    </tr>
+                    <tr class="success">
+                        <td>Email: @Model.Email</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        }
+    }
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert('@ViewBag.Message');
+            }
+        </script>
+    }
+</body>
+</html>
